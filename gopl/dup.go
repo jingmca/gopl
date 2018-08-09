@@ -2,10 +2,9 @@
 package gopl
 
 import (
+	"bufio"
 	"fmt"
-	"io/ioutil"
 	"os"
-	"strings"
 )
 
 type record struct {
@@ -26,12 +25,15 @@ func Dup() {
 			fmt.Println("dup: no files")
 			continue
 		}
-		f, err := ioutil.ReadFile(file)
+		f, err := os.Open(file)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "dup: %s\n", err)
 			continue
 		}
-		for nu, line := range strings.Split(string(f), "\n") {
+		input := bufio.NewScanner(f)
+
+		for nu := 0; input.Scan(); {
+			line := input.Text()
 			counts[line]++
 			if len(records[line]) == 0 {
 				records[line] = recordList{record{file, []int{nu + 1}}}
