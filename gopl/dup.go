@@ -3,6 +3,7 @@ package gopl
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"os"
 )
@@ -20,7 +21,7 @@ func Dup() {
 	counts := make(map[string]int)
 	records := make(map[string]recordList)
 
-	for _, file := range os.Args[1:] {
+	for _, file := range flag.Args() {
 		if len(file) == 0 {
 			fmt.Println("dup: no files")
 			continue

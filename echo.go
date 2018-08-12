@@ -2,13 +2,14 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"os"
 	"runtime/pprof"
 	"time"
 
-	gopl "github.com/jingmca/gopl"
+	"github.com/jingmca/gopl"
 )
 
 func echo() {
@@ -18,7 +19,22 @@ func echo() {
 }
 
 func main() {
-	gopl.Dup()
+	var f = flag.String("f", "dup", "which function to run")
+
+	flag.Parse()
+	switch *f {
+	case "dup":
+		gopl.Dup()
+	case "lisa":
+		gopl.Lisass(os.Stdout)
+	case "fetch":
+		gopl.GFetch()
+	default:
+		fmt.Println(*f)
+	}
+
+	//gopl.Dup()
+	//gopl.Lisass(os.Stdout)
 }
 
 func cpuProfile() {
