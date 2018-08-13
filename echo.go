@@ -30,6 +30,8 @@ func main() {
 		gopl.Lisass(os.Stdout)
 	case "fetch":
 		gopl.GFetch(filename)
+	case "httpd":
+		gopl.App()
 	default:
 		fmt.Println(*f)
 	}
