@@ -19,7 +19,8 @@ func echo() {
 }
 
 func main() {
-	var f = flag.String("f", "dup", "which function to run")
+	var f = flag.String("c", "dup", "which command to execute")
+	filename := flag.String("f", "", "url list file")
 
 	flag.Parse()
 	switch *f {
@@ -28,7 +29,7 @@ func main() {
 	case "lisa":
 		gopl.Lisass(os.Stdout)
 	case "fetch":
-		gopl.GFetch()
+		gopl.GFetch(filename)
 	default:
 		fmt.Println(*f)
 	}
