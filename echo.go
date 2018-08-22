@@ -32,6 +32,8 @@ func main() {
 		gopl.GFetch(filename)
 	case "httpd":
 		gopl.App()
+	case "lcs":
+		gopl.LCS([]rune("你吗"), []rune("你好家庭伟大吗"))
 	default:
 		fmt.Println(*f)
 	}
