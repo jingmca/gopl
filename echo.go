@@ -34,6 +34,9 @@ func main() {
 		gopl.App()
 	case "lcs":
 		gopl.LCS([]rune("你吗"), []rune("你好家庭伟大吗"))
+	case "maxsum":
+		gopl.MaxSum([]int{1, -1, 3})
+		gopl.MaxSum([]int{-9, -2, -3, 0, 1, 3})
 	default:
 		fmt.Println(*f)
 	}
