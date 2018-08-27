@@ -37,6 +37,8 @@ func main() {
 	case "maxsum":
 		gopl.MaxSum([]int{1, -1, 3})
 		gopl.MaxSum([]int{-9, -2, -3, 0, 1, 3})
+	case "lss":
+		gopl.LSS([]int{-9, -2, -3, 9, 1, 3}, 2)
 	default:
 		fmt.Println(*f)
 	}
