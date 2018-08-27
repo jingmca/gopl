@@ -66,9 +66,8 @@ func lcsWordsNoRc(X []rune, table [][]int, M, N int) {
 func max(a, b int) int {
 	if a >= b {
 		return a
-	} else {
-		return b
 	}
+	return b
 }
 
 //LCS wikl show
