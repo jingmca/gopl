@@ -2,13 +2,20 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 	"os"
 
 	"golang.org/x/net/html"
 )
 
 func main() {
-	doc, err := html.Parse(os.Stdin)
+	resp, err := http.Get(os.Args[1])
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	defer resp.Body.Close()
+	doc, err := html.Parse(resp.Body)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "findlinks1: %v", err)
 		os.Exit(1)
